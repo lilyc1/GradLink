@@ -40,6 +40,7 @@
   .grid-item:hover {
     background-color: rgb(84, 143, 232);
   }
+
   
   
   .grid-item:nth-child(1) { grid-column: 1; grid-row: 1; } /* Top-left */
