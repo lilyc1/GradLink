@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <header class="d-flex flex-row align-items-center justify-content-between p-3 px-4 mb-3 bg-white border-bottom fixed-top shadow-sm">
+        <img src="/assets/images/logo.png" alt="logo" class="logo" style="max-height: 70px;" routerLink="/">
+        <nav class="my-2 text-uppercase fs-4">
+            <a id="homeLink" class="p-2" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Home</a>
+            <a id="aboutLink" class="p-2" routerLink="/about-page" routerLinkActive="active" >About GradLink</a>
+            <a id="startLink" class="p-2" routerLink="/home-page" routerLinkActive="active" >Get Started</a>
+        </nav>
+        <div class="d-flex align-items-center">
+            <a routerLink="/login" class="btn btn-outline-secondary me-2">Login</a>
+            <a routerLink="/sign-up" class="btn btn-outline-secondary me-3">Sign Up</a>  
+        </div>
+    </header>
+
+</body>
+</html>
+

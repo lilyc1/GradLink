@@ -1,0 +1,7 @@
+.login-form-container {
+    width: 400px;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
