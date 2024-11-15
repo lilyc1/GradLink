@@ -28,7 +28,10 @@
   border: 2px solid black;
   transition: background-color 0.3s;
   overflow: hidden;
+  text-align: center; /* Center-align the text */
+  word-wrap: break-word; /* Break long words if necessary */
 }
+
 
 .grid-item img {
   width: 100%;
