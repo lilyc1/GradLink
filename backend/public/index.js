@@ -1,6 +1,6 @@
 //Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBCYcqUjXEP4fgnoRJLZRvp9tJna5W0fEA",
+  apiKey: "",
   authDomain: "gradlink-4e129.firebaseapp.com",
   databaseURL: "https://gradlink-4e129-default-rtdb.firebaseio.com",
   projectId: "gradlink-4e129",
