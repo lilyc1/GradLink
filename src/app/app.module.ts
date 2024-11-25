@@ -16,6 +16,10 @@ import { HomeComponent } from './home/home.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ChatAreaComponent } from './chat-area/chat-area.component';
+import { SidebarComponent } from './chat-area/sidebar/sidebar.component';
+import { MessageListComponent } from './chat-area/message-list/message-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,12 +35,16 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     HomeComponent,
     AboutPageComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    ChatAreaComponent,
+    SidebarComponent,
+    MessageListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,22 @@
+<div class="sidebar">
+    <div class="logo">Accounting</div>
+    <div class="section">
+      <h3>Channels</h3>
+      <ul>
+        <li *ngFor="let channel of channels" [routerLink]="['/chat', channel]">
+          # {{ channel }}
+        </li>
+      </ul>
+      <button (click)="addChannel()">+ Add Channel</button>
+    </div>
+  
+    <div class="section">
+      <h3>Direct Messages</h3>
+      <ul>
+        <li *ngFor="let dm of directMessages">
+          {{ dm }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  

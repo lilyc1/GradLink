@@ -1,0 +1,16 @@
+.message-list {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: #2f3136;
+  }
+  
+  .message {
+    margin-bottom: 15px;
+  }
+  
+  .message .username {
+    font-weight: bold;
+    color: #000000;
+  }
+  

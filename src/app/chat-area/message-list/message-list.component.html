@@ -1,0 +1,15 @@
+<div class="chat-display">
+    <div *ngFor="let message of messages" class="message">
+      <div class="user-info">
+        <span class="username">{{ message.username }}</span>
+        <span class="timestamp">{{ message.timestamp }}</span>
+      </div>
+      <div class="content">{{ message.content }}</div>
+    </div>
+  </div>
+  
+  <div class="message-input">
+    <textarea [(ngModel)]="newMessage" placeholder="Type a message..."></textarea>
+    <button (click)="sendMessage()">Send</button>
+  </div>
+  
