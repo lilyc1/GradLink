@@ -18,8 +18,10 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ChatAreaComponent } from './chat-area/chat-area.component';
 import { SidebarComponent } from './chat-area/sidebar/sidebar.component';
-import { MessageListComponent } from './chat-area/message-list/message-list.component';
+import { MessageListComponent } from './chat-area/chat-content/message-list/message-list.component';
 import { FormsModule } from '@angular/forms';
+import { MessageInputComponent } from './chat-area/chat-content/message-input/message-input.component';
+import { ChatContentComponent } from './chat-area/chat-content/chat-content.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { FormsModule } from '@angular/forms';
     SignUpComponent,
     ChatAreaComponent,
     SidebarComponent,
-    MessageListComponent
+    MessageListComponent,
+    MessageInputComponent,
+    ChatContentComponent
   ],
   imports: [
     BrowserModule,

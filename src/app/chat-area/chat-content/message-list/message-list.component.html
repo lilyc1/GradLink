@@ -1,0 +1,11 @@
+<div class="message-list">
+  <!-- Dynamically render messages -->
+  <div class="message" *ngFor="let message of messages">
+    <div class="message-header">
+      <strong>{{ message.username }}</strong><span class="timestamp">{{ message.timestamp }}</span>
+    </div>
+    <div class="message-content">
+      {{ message.content }}
+    </div>
+  </div>
+</div>

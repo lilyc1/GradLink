@@ -1,115 +1,41 @@
-.chat-container {
-    display: flex; /* Use Flexbox to align children horizontally */
-    height: 100vh; /* Full viewport height */
-    width: 100vw; /* Full viewport width */
-    overflow: hidden; /* Prevent overflow of content */
-  }
-  
-  /* Sidebar styles */
-  .sidebar {
-    background: #0021a5;
-    color: white;
-    padding: 10px;
-    box-sizing: border-box; /* Ensure padding doesn't overflow */
-    border-right: 2px solid #444; /* Border to separate the chat area */
-    overflow-y: auto; /* Allow scrolling if content overflows */
-  }
-  
-  .sidebar .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .sidebar h3 {
-    font-size: 1.1rem;
-    margin: 10px 0;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar ul li {
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .sidebar ul li:hover {
-    background: #40444b;
-    border-radius: 5px;
-  }
-  
-  .sidebar button {
-    margin-top: 10px;
-    background-color: #fa4616;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .sidebar button:hover {
-    background-color: #c33d12;
-  }
-  
-  /* Chat Area styles */
-  .chat-area {
+.chat-area {
     display: grid;
-    grid-template-rows: auto 60px; /* Messages take up all space, input bar is fixed */
-    background: #36393f;
+    grid-template-columns: 300px 1fr; /* Sidebar takes 300px, content takes remaining space */
+    height: 100vh; /* Full height */
+    width: 100%; /* Full width */
+  }
+  
+
+  /* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Push items to far left and right */
+    align-items: center; /* Vertically center content */
+    background-color: #003366; /* Dark blue background */
+    padding: 10px 20px; /* Padding around the navbar */
     color: white;
-    overflow: scroll;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   }
   
-  .message-list {
-    padding: 10px;
-    overflow-y: auto;
-    background: #2f3136;
+  /* Logo on the left */
+  .navbar-left .logo {
+    height: 40px; /* Adjust logo size */
   }
   
-  .message {
-    margin-bottom: 15px;
-  }
-  
-  .message .username {
+  /* Buttons on the right */
+  .navbar-right button {
+    background-color: #ffa500; /* Orange button */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 10px; /* Space between buttons */
+    border-radius: 5px;
+    font-size: 14px;
     font-weight: bold;
-    color: #ffffff;
-  }
-  
-  .message-input {
-    display: grid;
-    grid-template-columns: auto 100px; /* Textarea fills, button is 100px wide */
-    background: #40444b;
-    padding: 10px;
-    border-top: 1px solid #2f3136;
-  }
-  
-  .message-input textarea {
-    resize: none;
-    background: #2f3136;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-  }
-  
-  .message-input textarea:focus {
-    outline: none;
-  }
-  
-  .message-input button {
-    background-color: #5865f2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
     cursor: pointer;
+    transition: background-color 0.3s; /* Smooth hover effect */
   }
   
-  .message-input button:hover {
-    background-color: #4752c4;
+  .navbar-right button:hover {
+    background-color: #e69500; /* Darker orange on hover */
   }
-  

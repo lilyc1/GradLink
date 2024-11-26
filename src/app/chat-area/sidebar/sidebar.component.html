@@ -1,22 +1,19 @@
 <div class="sidebar">
-    <div class="logo">Accounting</div>
-    <div class="section">
-      <h3>Channels</h3>
-      <ul>
-        <li *ngFor="let channel of channels" [routerLink]="['/chat', channel]">
-          # {{ channel }}
-        </li>
-      </ul>
-      <button (click)="addChannel()">+ Add Channel</button>
-    </div>
+    <h2>Accounting</h2>
   
-    <div class="section">
-      <h3>Direct Messages</h3>
-      <ul>
-        <li *ngFor="let dm of directMessages">
-          {{ dm }}
-        </li>
-      </ul>
-    </div>
+    <!-- Channels Section -->
+    <h3>Channels</h3>
+    <ul>
+      <!-- Dynamically render channels -->
+      <li *ngFor="let channel of channels"># {{ channel }}</li>
+    </ul>
+    <button (click)="addChannel()">+ Add Channel</button>
+  
+    <!-- Direct Messages Section -->
+    <h3>Direct Messages</h3>
+    <ul>
+      <!-- Dynamically render direct messages -->
+      <li *ngFor="let user of directMessages">{{ user }}</li>
+    </ul>
   </div>
   
