@@ -3,6 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatIconModule } from '@angular/material/icon';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 import { HomePageComponent } from './start-page/home-page.component';
 import { Grad2022Component } from './grad2022/grad2022.component';
@@ -22,6 +30,8 @@ import { MessageListComponent } from './chat-area/chat-content/message-list/mess
 import { FormsModule } from '@angular/forms';
 import { MessageInputComponent } from './chat-area/chat-content/message-input/message-input.component';
 import { ChatContentComponent } from './chat-area/chat-content/chat-content.component';
+import { SignUpBasicComponent } from './sign-up/sign-up-basic/sign-up-basic.component';
+import { SignUpProfileComponent } from './sign-up/sign-up-profile/sign-up-profile.component';
 
 @NgModule({
   declarations: [
@@ -42,13 +52,24 @@ import { ChatContentComponent } from './chat-area/chat-content/chat-content.comp
     SidebarComponent,
     MessageListComponent,
     MessageInputComponent,
-    ChatContentComponent
+    ChatContentComponent,
+    SignUpBasicComponent,
+    SignUpProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    MatStepperModule,
+    MatIconModule,
+
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
