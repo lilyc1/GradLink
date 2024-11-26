@@ -24,6 +24,12 @@ import { HomeComponent } from './home/home.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ChatAreaComponent } from './chat-area/chat-area.component';
+import { SidebarComponent } from './chat-area/sidebar/sidebar.component';
+import { MessageListComponent } from './chat-area/chat-content/message-list/message-list.component';
+import { FormsModule } from '@angular/forms';
+import { MessageInputComponent } from './chat-area/chat-content/message-input/message-input.component';
+import { ChatContentComponent } from './chat-area/chat-content/chat-content.component';
 import { SignUpBasicComponent } from './sign-up/sign-up-basic/sign-up-basic.component';
 import { SignUpProfileComponent } from './sign-up/sign-up-profile/sign-up-profile.component';
 
@@ -42,13 +48,19 @@ import { SignUpProfileComponent } from './sign-up/sign-up-profile/sign-up-profil
     AboutPageComponent,
     LoginComponent,
     SignUpComponent,
+    ChatAreaComponent,
+    SidebarComponent,
+    MessageListComponent,
+    MessageInputComponent,
+    ChatContentComponent,
     SignUpBasicComponent,
-    SignUpProfileComponent
+    SignUpProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
     MatStepperModule,
     MatIconModule,
 

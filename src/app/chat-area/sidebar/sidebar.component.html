@@ -1,0 +1,19 @@
+<div class="sidebar">
+    <h2>Accounting</h2>
+  
+    <!-- Channels Section -->
+    <h3>Channels</h3>
+    <ul>
+      <!-- Dynamically render channels -->
+      <li *ngFor="let channel of channels"># {{ channel }}</li>
+    </ul>
+    <button (click)="addChannel()">+ Add Channel</button>
+  
+    <!-- Direct Messages Section -->
+    <h3>Direct Messages</h3>
+    <ul>
+      <!-- Dynamically render direct messages -->
+      <li *ngFor="let user of directMessages">{{ user }}</li>
+    </ul>
+  </div>
+  

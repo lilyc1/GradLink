@@ -1,0 +1,7 @@
+.chat-content {
+    display: grid;
+    grid-template-rows: 1fr auto; /* Messages list takes available space, input stays at the bottom */
+    background-color: #f4f4f4;
+    height: 100%;
+  }
+  
