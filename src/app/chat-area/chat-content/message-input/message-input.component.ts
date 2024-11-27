@@ -6,14 +6,20 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./message-input.component.css']
 })
 export class MessageInputComponent {
-  newMessage: string = '';
+  @Output() sentMessage = new EventEmitter<Message>();
 
-  @Output() messageSent = new EventEmitter<string>();
-
-  sendMessage() {
-    if (this.newMessage.trim()) {
-      this.messageSent.emit(this.newMessage.trim());
-      this.newMessage = '';
-    }
+  send(content: string) {
+    const newMessage: Message = {
+      username: 'You', // Replace with actual username logic
+      content: content,
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    };
+    this.sentMessage.emit(newMessage); // Emit valid Message object
   }
+}
+
+export interface Message {
+  username: string;
+  content: string;
+  timestamp: string;
 }

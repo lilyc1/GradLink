@@ -1,4 +1,4 @@
   <div class="message-input">
-    <input [(ngModel)]="newMessage" placeholder="Type a message..." />
-    <button (click)="sendMessage()">Send</button>
+    <input #messageInput type="text" (keyup.enter)="send(messageInput.value); messageInput.value='';" placeholder="Type a message">
+    <button (click)="send(messageInput.value); messageInput.value=''">Send</button>
   </div>

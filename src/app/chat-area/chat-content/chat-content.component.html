@@ -1,5 +1,6 @@
 <div class="chat-content">
+    <h2>#{{ activeChannel }}</h2>
     <app-message-list [messages]="messages"></app-message-list>
-    <app-message-input (messageSent)="addMessage($event)"></app-message-input>
+    <app-message-input (sentMessage)="sendMessage($event)"></app-message-input>
   </div>
   
