@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { MatIconModule } from '@angular/material/icon';
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -24,14 +27,14 @@ import { HomeComponent } from './home/home.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { ChatAreaComponent } from './chat-area/chat-area.component';
-import { SidebarComponent } from './chat-area/sidebar/sidebar.component';
-import { MessageListComponent } from './chat-area/chat-content/message-list/message-list.component';
-import { FormsModule } from '@angular/forms';
-import { MessageInputComponent } from './chat-area/chat-content/message-input/message-input.component';
-import { ChatContentComponent } from './chat-area/chat-content/chat-content.component';
+import { environment } from '../../backend/environments/environment';
 import { SignUpBasicComponent } from './sign-up/sign-up-basic/sign-up-basic.component';
 import { SignUpProfileComponent } from './sign-up/sign-up-profile/sign-up-profile.component';
+import { ChatAreaComponent } from './chat-area/chat-area.component';
+import { ChatContentComponent } from './chat-area/chat-content/chat-content.component';
+import { MessageInputComponent } from './chat-area/chat-content/message-input/message-input.component';
+import { MessageListComponent } from './chat-area/chat-content/message-list/message-list.component';
+import { SidebarComponent } from './chat-area/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -58,12 +61,13 @@ import { SignUpProfileComponent } from './sign-up/sign-up-profile/sign-up-profil
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     MatStepperModule,
     MatIconModule,
-
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatStepperModule,

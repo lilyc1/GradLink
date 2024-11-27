@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 
+<div *ngIf="isLoggedIn; else notLoggedIn">
 <div class="home-container">
     <p>Please select one of the following...</p>
 </div>
@@ -21,5 +22,13 @@
         <img src="assets/images/2026.png" alt="2026 Grad" />
       </a>
     </div>
-  
-  
+  </div>
+
+  <ng-template #notLoggedIn>
+    <div class="d-flex justify-content-center mt-5">
+      <div class="login-form-container p-4">
+        <h2 class="text-center mb-4">Please log in to access this page</h2>
+        <button class="btn btn-primary w-100" (click)="navigateToLogin()">Log In</button>
+      </div>
+    </div>
+  </ng-template>
