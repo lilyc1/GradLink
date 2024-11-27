@@ -4,4 +4,9 @@
     background-color: #f4f4f4;
     height: 100%;
   }
-  
+
+h2 { /* Dark blue background */
+    padding: 10px 20px; /* Padding around the navbar */
+    color: #003366; 
+    margin-top: 10px;    
+}

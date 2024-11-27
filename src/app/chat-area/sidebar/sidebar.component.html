@@ -5,7 +5,11 @@
     <h3>Channels</h3>
     <ul>
       <!-- Dynamically render channels -->
-      <li *ngFor="let channel of channels"># {{ channel }}</li>
+      <li *ngFor="let channel of channels" 
+        (click)="onChannelClick(channel)" 
+        [class.active]="channel === activeChannel">
+      # {{ channel }}
+    </li>
     </ul>
     <button (click)="addChannel()">+ Add Channel</button>
   
