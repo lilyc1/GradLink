@@ -35,6 +35,7 @@ import { ChatContentComponent } from './chat-area/chat-content/chat-content.comp
 import { MessageInputComponent } from './chat-area/chat-content/message-input/message-input.component';
 import { MessageListComponent } from './chat-area/chat-content/message-list/message-list.component';
 import { SidebarComponent } from './chat-area/sidebar/sidebar.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { SidebarComponent } from './chat-area/sidebar/sidebar.component';
     ChatContentComponent,
     SignUpBasicComponent,
     SignUpProfileComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

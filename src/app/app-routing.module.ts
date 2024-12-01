@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { MajorSelectionComponent } from './major-selection/major-selection.component';
 import { ChatAreaComponent } from './chat-area/chat-area.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'major-selection', component: MajorSelectionComponent },
   { path: 'chat', component: ChatAreaComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }
 ];

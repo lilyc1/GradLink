@@ -9,8 +9,10 @@
             <a id="startLink" class="p-2" routerLink="/home-page" routerLinkActive="active" >Get Started</a>
         </nav>
         <div class="d-flex align-items-center">
-            <a routerLink="/login" class="btn btn-outline-secondary me-2">Login</a>
-            <a routerLink="/sign-up" class="btn btn-outline-secondary me-3">Sign Up</a>  
+            <button *ngIf="isSignedIn" routerLink="/profile">Profile</button>
+            <button *ngIf="!isSignedIn" routerLink="/login">Login</button>
+            <button *ngIf="isSignedIn" (click)="logout()">Logout</button>
+            <button *ngIf="!isSignedIn" routerLink="/sign-up">Sign Up</button>
         </div>
     </header>
 
