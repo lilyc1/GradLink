@@ -21,4 +21,9 @@ export class DatabaseService {
   getUserProfile(uid: string): Observable<any> {
     return this.db.object(`users/${uid}`).valueChanges();
   }
+
+  updateUserProfile(userId: string, data: any) {
+    return this.db.object(`users/${userId}`).update(data);
+  }
+
 }

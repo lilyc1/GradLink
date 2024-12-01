@@ -52,7 +52,7 @@ export class SignUpComponent implements OnInit {
   email!: FormGroup;
   password!: FormGroup;
   confirmPassword!: FormGroup;
-  linkedInLink!: FormGroup;
+  linkedIn!: FormGroup;
   city!: FormGroup;
   state!: FormGroup;
   passwordMismatch: boolean = false;
@@ -82,7 +82,7 @@ export class SignUpComponent implements OnInit {
       },
       
     );
-    this.linkedInLink = new FormGroup({
+    this.linkedIn = new FormGroup({
       'sixthCtrl': new FormControl(''),
     });
     this.city = new FormGroup({
@@ -100,7 +100,7 @@ export class SignUpComponent implements OnInit {
       const password = this.password.value.fourthCtrl;
       const firstName = this.firstName.value.firstCtrl;
       const lastName = this.lastName.value.secondCtrl;
-      const linkedIn = this.linkedInLink.value.sixthCtrl;
+      const linkedIn = this.linkedIn.value.sixthCtrl;
       const city = this.city.value.seventhCtrl;
       const state = this.state.value.eighthCtrl;
 

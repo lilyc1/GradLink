@@ -10,6 +10,7 @@ import { DatabaseService } from 'backend/database.service';
 export class ProfileComponent implements OnInit {
   userProfile: any; // Object to hold profile data
   userId: string | null = '';
+  isEditing: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -25,5 +26,28 @@ export class ProfileComponent implements OnInit {
         });
       }
     });
+  }
+
+  editProfile(): void {
+    this.isEditing = true; // Enter edit mode
+  }
+
+  cancelEdit(): void {
+    this.isEditing = false; // Exit edit mode without saving
+  }
+
+  saveProfile(): void {
+    if (this.userId) {
+      this.dbService.updateUserProfile(this.userId, {
+        city: this.userProfile.city,
+        state: this.userProfile.state,
+        linkedIn: this.userProfile.linkedIn
+      }).then(() => {
+        this.isEditing = false; // Exit edit mode after saving
+        //alert('Profile updated successfully!');
+      }).catch((error) => {
+        console.error('Error updating profile:', error);
+      });
+    }
   }
 }

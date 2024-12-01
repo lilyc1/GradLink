@@ -4,8 +4,34 @@
     <h2>User Profile</h2>
     <p><strong>First Name:</strong> {{ userProfile.firstName }}</p>
     <p><strong>Last Name:</strong> {{ userProfile.lastName }}</p>
-    <p><strong>City:</strong> {{ userProfile.city }}</p>
-    <p><strong>State:</strong> {{ userProfile.state }}</p>
-    <p><strong>Linkedin:</strong> {{ userProfile.Linkedin }}</p>
+    
+    <div *ngIf="!isEditing">
+      <p><strong>City:</strong> {{ userProfile.city }}</p>
+      <p><strong>State:</strong> {{ userProfile.state }}</p>
+      <p><strong>LinkedIn:</strong> {{ userProfile.linkedIn }}</p>
+      <button (click)="editProfile()">Edit Profile</button>
+    </div>
+
+    <div *ngIf="isEditing">
+      <div class="form-group">
+        <label><p><strong>City:</strong></p></label>
+        <input [(ngModel)]="userProfile.city" type="text" class="form-control-inline" />
+      </div>
+    
+      <div class="form-group">
+        <label><p><strong>State:</strong></p></label>
+        <input [(ngModel)]="userProfile.state" type="text" class="form-control-inline" />
+      </div>
+    
+      <div class="form-group">
+        <label><p><strong>LinkedIn:</strong></p></label>
+        <input [(ngModel)]="userProfile.linkedIn" type="text" class="form-control-inline" />
+      </div>
+
+      <div class="button-group">
+    <button (click)="saveProfile()" class="btn btn-primary">Save</button>
+    <button (click)="cancelEdit()" class="btn btn-secondary">Cancel</button>
+  </div>
+    </div>
   </div>
   
