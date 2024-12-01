@@ -62,7 +62,17 @@ logout() {
   return this.afAuth.signOut()
     .then(() => {
       console.log('User successfully logged out');
-      this.router.navigate(['/login']); // Navigate back to login page
+      this.router.navigate(['/home']); // Navigate back to login page
     });
+}
+
+// Fetch the current user profile data
+getUserProfile(uid: string) {
+  return this.db.object(`users/${uid}`).valueChanges();
+}
+
+// Get current user info from Firebase Authentication
+getCurrentUser() {
+  return this.afAuth.authState; // Observable that tracks the currently signed-in user
 }
 }
