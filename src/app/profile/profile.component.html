@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+
+<div class="profile-card" *ngIf="userProfile">
+    <h2>User Profile</h2>
+    <p><strong>First Name:</strong> {{ userProfile.firstName }}</p>
+    <p><strong>Last Name:</strong> {{ userProfile.lastName }}</p>
+    <p><strong>City:</strong> {{ userProfile.city }}</p>
+    <p><strong>State:</strong> {{ userProfile.state }}</p>
+    <p><strong>Linkedin:</strong> {{ userProfile.Linkedin }}</p>
+  </div>
+  

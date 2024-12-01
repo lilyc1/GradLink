@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,5 +16,9 @@ export class DatabaseService {
   // retrieving data
   getData(path: string) {
     return this.db.list(path).valueChanges();
+  }
+
+  getUserProfile(uid: string): Observable<any> {
+    return this.db.object(`users/${uid}`).valueChanges();
   }
 }
