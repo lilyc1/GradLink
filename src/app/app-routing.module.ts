@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'major-selection', component: MajorSelectionComponent },
   { path: 'chat', component: ChatAreaComponent },
+  { path: ':gradClass/:major/:channel', component: ChatAreaComponent },
   { path: 'profile', component: ProfileComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }

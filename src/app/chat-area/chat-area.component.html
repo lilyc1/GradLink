@@ -9,7 +9,7 @@
   </div>
 
 <div class="chat-area">
-    <app-sidebar [channels]="channels" [activeChannel]="activeChannel" (channelSwitch)="switchChannel($event)"></app-sidebar>
-    <app-chat-content [messages]="messages[activeChannel]" [activeChannel]="activeChannel" (sentMessage)="onMessageSent($event)"></app-chat-content>
+    <app-sidebar></app-sidebar>
+    <app-chat-content [gradClass]="gradClass" [majorId]="majorId" [currentChannel]="currentChannel" [messages]="messages"></app-chat-content>
   </div>
   

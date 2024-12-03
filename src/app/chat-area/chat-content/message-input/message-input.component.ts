@@ -1,25 +1,51 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input,Output, EventEmitter, OnInit } from '@angular/core';
+import { AuthService } from 'src/auth.service';
+import { DatabaseService } from 'backend/database.service';
 
 @Component({
   selector: 'app-message-input',
   templateUrl: './message-input.component.html',
   styleUrls: ['./message-input.component.css']
 })
-export class MessageInputComponent {
-  @Output() sentMessage = new EventEmitter<Message>();
+export class MessageInputComponent implements OnInit{
+  userProfile: any; // Object to hold profile data
+  userId: string | null = '';
+  @Input() gradClass: string | null = null;
+  @Input() majorId: string | null = null;
+  @Input() currentChannel: string | null = null;
 
-  send(content: string) {
-    const newMessage: Message = {
-      username: 'You', // Replace with actual username logic
-      content: content,
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-    };
-    this.sentMessage.emit(newMessage); // Emit valid Message object
+  constructor(
+    private authService: AuthService,
+    private dbService: DatabaseService
+  ) {}
+
+  ngOnInit(): void {
+    this.authService.getCurrentUser().subscribe((user) => {
+      if (user) {
+        this.userId = user.uid;
+        this.dbService.getUserProfile(this.userId).subscribe((profile) => {
+          this.userProfile = profile; // Assign fetched profile data
+        });
+      }
+    });
   }
-}
 
-export interface Message {
-  username: string;
-  content: string;
-  timestamp: string;
+  newMessage: string = '';
+
+  sendMessage() {
+    if (this.newMessage.trim() && this.gradClass && this.majorId && this.currentChannel) {
+      const path = `${this.gradClass}/${this.majorId}/${this.currentChannel}/messages`;
+      const newMessageData = {
+        sender: this.userProfile.firstName,  // Replace with actual user info
+        text: this.newMessage,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      this.dbService.addData(path, newMessageData).then(() => {
+        this.newMessage = ''; // Clear input field
+      }).catch(error => {
+        console.error('Error sending message:', error);
+      });
+    }
+  }
 }
