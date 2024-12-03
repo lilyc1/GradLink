@@ -1,57 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DatabaseService } from 'backend/database.service';
 
 @Component({
   selector: 'app-chat-area',
   templateUrl: './chat-area.component.html',
   styleUrls: ['./chat-area.component.css']
 })
-export class ChatAreaComponent {
-  activeChannel: string = 'General'; // Default channel
-  channels = ['General', 'Jobs', 'Networking']; // List of channels
+export class ChatAreaComponent implements OnInit{
+  currentChannel: string | null = null; // Default channel
+  majorId: string | null = null;
+  gradClass: string | null = null;
+  messages: any[] = [];
 
-  // Function to switch the active channel
-  switchChannel(channel: string) {
-    this.activeChannel = channel;
+  constructor(private route: ActivatedRoute, private dbService: DatabaseService) {}
+
+  loadMessages() {
+    const path = `${this.gradClass}/${this.majorId}/${this.currentChannel}/messages`;
+    this.dbService.getData(path).subscribe((messages: any) => {
+      this.messages = messages ? Object.values(messages) : [];
+    });
   }
 
-  // Store messages for each channel
-  messages: Messages = {
-    General: [{
-      username: 'Alice',
-      content: 'Hey everyone, welcome to the General channel!',
-      timestamp: '10:00 AM',
-    },
-    {
-      username: 'Bob',
-      content: 'Good morning! How’s everyone doing today?',
-      timestamp: '10:02 AM',
-    },],
-    Jobs: [{
-      username: 'Charlie',
-      content: 'Does anyone know of any openings for junior developers?',
-      timestamp: '2024-11-25T09:30:00Z',
-    },
-    {
-      username: 'Alice',
-      content: 'Check out the Careers page on our company website!',
-      timestamp: '2024-11-25T09:35:00Z',
-    },],
-    Networking: [],
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.majorId = params.get('major'); // Read major from the URL
+      this.currentChannel = params.get('channel'); // Read channel from the URL
+      this.gradClass = params.get('gradClass');
+      if (this.majorId && this.currentChannel) {
+        this.loadMessages(); // Load messages for the current channel
+      }
+    });
   };
-
-  onMessageSent(newMessage: Message) {
-    this.messages[this.activeChannel].push(newMessage);
-  }
-  
 }
-
-interface Message {
-  username: string;
-  content: string;
-  timestamp: string;
-}
-
-// Define the messages for all channels
-type Messages = {
-  [channel: string]: Message[];
-};

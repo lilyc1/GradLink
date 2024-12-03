@@ -1,6 +1,10 @@
 <div class="chat-content">
-    <h2>#{{ activeChannel }}</h2>
+    <h2>#{{ currentChannel }}</h2>
     <app-message-list [messages]="messages"></app-message-list>
-    <app-message-input (sentMessage)="sendMessage($event)"></app-message-input>
+    <app-message-input 
+      [gradClass]="gradClass" 
+      [majorId]="majorId" 
+      [currentChannel]="currentChannel">
+    </app-message-input>
   </div>
   

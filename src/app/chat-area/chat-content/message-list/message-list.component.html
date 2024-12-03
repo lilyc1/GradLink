@@ -2,10 +2,10 @@
   <!-- Dynamically render messages -->
   <div class="message" *ngFor="let message of messages">
     <div class="message-header">
-      <strong>{{ message.username }}</strong><span class="timestamp">{{ message.timestamp }}</span>
+      <strong>{{ message.sender }}</strong><span class="timestamp">{{ message.timestamp }}</span>
     </div>
     <div class="message-content">
-      {{ message.content }}
+      {{ message.text }}
     </div>
   </div>
 </div>

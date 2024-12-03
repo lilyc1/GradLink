@@ -1,24 +1,39 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DatabaseService } from 'backend/database.service';
+
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent {
-  // channels = ['General', 'Jobs', 'Networking'];
+export class SidebarComponent implements OnInit { 
+  majorId: string | null = null;
+  gradClass: string | null = null;
+  currentChannel: string | null = null;
+  channels: string[] = [];
   directMessages = ['Alice', 'Bob', 'Charlie'];
 
-  addChannel() {
-    const newChannel = prompt('Enter new channel name:');
-    if (newChannel) this.channels.push(newChannel);
+  constructor(private route: ActivatedRoute, private router: Router, private dbService: DatabaseService) {}
+
+  ngOnInit() {
+    // Subscribe to URL changes to dynamically fetch and highlight the correct channel
+    this.route.paramMap.subscribe(params => {
+      this.majorId = params.get('major');
+      this.currentChannel = params.get('channel'); // Fetch the channel from the URL
+      this.gradClass = params.get('gradClass');
+
+      if (this.majorId) {
+        this.loadChannels(this.majorId);
+      }
+    });
   }
 
-  @Input() channels: string[] = [];
-  @Input() activeChannel: string = '';
-  @Output() channelSwitch = new EventEmitter<string>();
-
-  onChannelClick(channel: string) {
-    this.channelSwitch.emit(channel);
+  loadChannels(major: string) {
+    const path = `${this.gradClass}/${major}/channels`;
+    this.dbService.getData(path).subscribe((channels: any) => {
+      this.channels = channels;
+    });
   }
 }

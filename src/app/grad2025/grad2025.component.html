@@ -6,8 +6,10 @@
 </div>
 
 <div class="grid-container">
-    <a routerLink="/grad2022" class="grid-item">
-        <img src="assets/images/accounting.png" alt="Accounting" />
+    <a *ngFor="let major of majors" 
+       [routerLink]="['/grad2025', major, 'general']" 
+       class="grid-item">
+        {{ major }}
     </a>
 
     

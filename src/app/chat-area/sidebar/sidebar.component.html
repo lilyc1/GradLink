@@ -1,17 +1,16 @@
 <div class="sidebar">
-    <h2>Accounting</h2>
+    <h2>{{majorId}}</h2>
   
     <!-- Channels Section -->
     <h3>Channels</h3>
     <ul>
       <!-- Dynamically render channels -->
-      <li *ngFor="let channel of channels" 
-        (click)="onChannelClick(channel)" 
-        [class.active]="channel === activeChannel">
-      # {{ channel }}
+      <li *ngFor="let channel of channels">
+        <a [routerLink]="['/' , gradClass, majorId, channel]" [class.active]="channel === currentChannel">
+          #{{ channel }}
+        </a>
     </li>
     </ul>
-    <button (click)="addChannel()">+ Add Channel</button>
   
     <!-- Direct Messages Section -->
     <h3>Direct Messages</h3>

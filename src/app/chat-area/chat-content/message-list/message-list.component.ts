@@ -6,6 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./message-list.component.css']
 })
 export class MessageListComponent {
-  @Input() messages: { username: string; content: string; timestamp: string }[] =
-    [];
+  @Input() messages: any[] = [];
 }
