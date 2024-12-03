@@ -18,7 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(251, 251, 251);
+  background-color: rgb(242, 242, 243);
   height: 175px;
   width: 175px;
   text-decoration: none;
@@ -28,8 +28,8 @@
   border: 2px solid black;
   transition: background-color 0.3s;
   overflow: hidden;
-  text-align: center; /* Center-align the text */
-  word-wrap: break-word; /* Break long words if necessary */
+  text-align: center;
+  word-wrap: break-word; 
 }
 
 

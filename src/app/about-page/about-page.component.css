@@ -50,25 +50,25 @@
   .team-row {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Space between team members */
+    gap: 20px;
   }
   
   .team-member {
     text-align: center;
-    max-width: 200px; /* Optional: Limit width of each team member block */
+    max-width: 200px; 
   }
   
   .team-member img {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border-radius: 50%; /* Makes the image circular */
+    border-radius: 50%; 
     border: 2px solid #ccc;
     transition: transform 0.3s;
   }
   
   .team-member img:hover {
-    transform: scale(1.1); /* Adds a zoom effect on hover */
+    transform: scale(1.1); 
   }
   
   .team-member .name {
@@ -79,7 +79,7 @@
   
   .team-member .description {
     font-size: 14px;
-    color: #555; /* Optional: Lighter text for description */
+    color: #555; 
     margin-top: 5px;
   }
   

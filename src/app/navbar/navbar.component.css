@@ -13,27 +13,27 @@ a {
 }
 
 button {
-    background: none; /* Remove default button styling */
+    background: none;
     border: none;
-    color: #343a40; /* Default text color */
+    color: #343a40;
     font-size: 16px;
     cursor: pointer;
     padding: 10px 15px;
     transition: color 0.3s ease, background-color 0.3s ease;
-    border-radius: 4px; /* Optional: Add rounded corners for a modern look */
+    border-radius: 4px; 
   }
   
   button:hover {
-    background-color: #f1f1f1; /* Subtle background color on hover */
+    background-color: #f1f1f1; 
   }
   
   button.active {
-    color: #ea4003; /* Active state color matching your provided style */
-    font-weight: bold; /* Make active buttons stand out */
+    color: #ea4003; 
+    font-weight: bold; 
   }
   
   button:focus {
-    outline: none; /* Remove focus outline */
-    box-shadow: 0 0 0 2px rgba(234, 64, 3, 0.5); /* Optional: Add a shadow to indicate focus */
+    outline: none; 
+    box-shadow: 0 0 0 2px rgba(234, 64, 3, 0.5); 
   }
   
